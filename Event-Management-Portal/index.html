@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Management Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gatherly</h1>
+    <nav>
+      <a href="#events">Explore Events</a>
+      <a href="#create">Create Event</a>
+      <a href="#admin">Organizer Dashboard</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Discover Events. Create Experiences.</h2>
+    <p>Explore upcoming events and register for your next experience.</p>
+    <a class="button" href="#events">Explore Events</a>
+  </section>
+
+  <main>
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <input id="search" placeholder="Search events by name or venue">
+      <div id="eventGrid" class="grid">Loading events...</div>
+      <p id="eventMessage" role="status"></p>
+    </section>
+
+    <section id="create" class="panel">
+      <h2>Create an Event</h2>
+      <form id="eventForm">
+        <label for="title">Event title</label>
+        <input id="title" required maxlength="100">
+
+        <label for="description">Description</label>
+        <textarea id="description" required maxlength="1000"></textarea>
+
+        <label for="event_date">Date</label>
+        <input id="event_date" type="date" required>
+
+        <label for="venue">Venue</label>
+        <input id="venue" required maxlength="160">
+
+        <label for="capacity">Capacity</label>
+        <input id="capacity" type="number" min="1" max="100000" value="50" required>
+
+        <button type="submit">Publish Event</button>
+        <p id="createMessage" role="status"></p>
+      </form>
+    </section>
+
+    <section id="admin">
+      <h2>Organizer Dashboard</h2>
+      <div class="stats">
+        <div class="panel">Events <strong id="eventCount">0</strong></div>
+        <div class="panel">Registrations <strong id="registrationCount">0</strong></div>
+        <div class="panel">Available Seats <strong id="seatCount">0</strong></div>
+      </div>
+
+      <h3>Manage Events</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th><th>Date</th><th>Venue</th>
+              <th>Attendees</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminEvents"></tbody>
+        </table>
+      </div>
+
+      <h3>Attendee Registrations</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Email</th><th>Event</th><th>Date</th></tr>
+          </thead>
+          <tbody id="registrations"></tbody>
+        </table>
+      </div>
+      <p id="adminMessage" role="status"></p>
+    </section>
+  </main>
+
+  <dialog id="registerDialog">
+    <button id="closeDialog" type="button" class="close">✕</button>
+    <h2>Event Registration</h2>
+    <p id="selectedEvent"></p>
+    <form id="registerForm">
+      <input id="registerEventId" type="hidden">
+
+      <label for="attendeeName">Your name</label>
+      <input id="attendeeName" required maxlength="100">
+
+      <label for="attendeeEmail">Email address</label>
+      <input id="attendeeEmail" type="email" required maxlength="254">
+
+      <button type="submit">Register Now</button>
+      <p id="registerMessage" role="status"></p>
+    </form>
+  </dialog>
+
+  <footer>Gatherly — Event Management Portal</footer>
+  <script src="app.js"></script>
+</body>
+</html>

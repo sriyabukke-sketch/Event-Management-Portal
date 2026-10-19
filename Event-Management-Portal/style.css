@@ -1,0 +1,288 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #6554df;
+  --dark: #24223c;
+  --background: #f6f5fc;
+  --border: #e5e3ef;
+  --muted: #77758b;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--dark);
+  background: var(--background);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 18px 6%;
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  margin: 0;
+  color: var(--primary);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  text-align: center;
+  padding: 75px 20px;
+  background: linear-gradient(120deg, #e9e5ff, #f9e9f2);
+}
+
+.hero h2 {
+  font-size: clamp(28px, 4vw, 43px);
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.button,
+button {
+  display: inline-block;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 17px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+  opacity: 0.9;
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 25px;
+}
+
+section {
+  margin: 45px 0;
+  scroll-margin-top: 20px;
+}
+
+section h2 {
+  font-size: 25px;
+}
+
+#search {
+  max-width: 450px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.event-card,
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.event-card {
+  box-shadow: 0 5px 20px #28204408;
+}
+
+.event-card h3 {
+  margin-top: 0;
+}
+
+.event-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.event-card .event-date {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.event-card button {
+  margin-top: 10px;
+}
+
+.event-card button:disabled {
+  background: #aaa8b7;
+  cursor: not-allowed;
+}
+
+.panel {
+  max-width: 750px;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #d2ccff;
+  border-color: var(--primary);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.stats .panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.stats strong {
+  font-size: 25px;
+  color: var(--primary);
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 28px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 13px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+th {
+  background: #efedfa;
+}
+
+.delete-button {
+  background: #ffebee;
+  color: #bd3048;
+  padding: 8px 10px;
+}
+
+dialog {
+  width: min(440px, calc(100% - 30px));
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 25px;
+}
+
+dialog::backdrop {
+  background: #201b3a99;
+}
+
+.close {
+  float: right;
+  padding: 7px 10px;
+  background: #eeeafa;
+  color: var(--dark);
+}
+
+#registerForm {
+  clear: both;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: white;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  header {
+    padding: 18px 4%;
+  }
+}
+
+@media (max-width: 550px) {
+  .grid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 55px 18px;
+  }
+}
